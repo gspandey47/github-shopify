@@ -1,0 +1,69 @@
+{% comment %} 
+    Custom Text Block Section 
+{% endcomment %}
+
+<section class="custom-text-block">
+  <div class="custom-text-block__wrapper">
+
+    {% if section.settings.heading != blank %}
+      <h2 class="custom-text-block__heading">
+        {{ section.settings.heading }}
+      </h2>
+    {% endif %}
+
+    {% if section.settings.content != blank %}
+      <div class="custom-text-block__content">
+        {{ section.settings.content }}
+      </div>
+    {% endif %}
+
+  </div>
+</section>
+
+{% schema %}
+  {
+    "name": "Custom Text Block",
+    "settings": [
+      {
+        "type": "text",
+        "id": "heading",
+        "label": "Heading (H2)",
+        "default": "Your Heading Here"
+      }, {
+        "type": "richtext",
+        "id": "content",
+        "label": "Content Text",
+        "default": "<p>Add your description text here</p>"
+      }
+    ],
+    "presets": [
+      {
+        "name": "Simple Section"
+      }
+    ]
+  }
+{% endschema %}
+
+{% style %}
+  .custom-text-block {
+    padding: 60px 20px;
+  }
+
+  .custom-text-block__wrapper {
+    max-width: 900px;
+    margin: 0 auto;
+    text-align: center;
+  }
+
+  .custom-text-block__heading {
+    font-size: 32px;
+    font-weight: 600;
+    margin-bottom: 20px;
+  }
+
+  .custom-text-block__content {
+    font-size: 16px;
+    line-height: 1.6;
+    color: #555;
+  }
+{% endstyle %}
