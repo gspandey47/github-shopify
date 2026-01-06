@@ -1,0 +1,80 @@
+<section class="text-with-button">
+  <div class="text-with-button__wrapper">
+
+    {% if section.settings.paragraph_text != blank %}
+      <p class="text-with-button__text">
+        {{ section.settings.paragraph_text }}
+      </p>
+    {% endif %}
+
+    {% if section.settings.button_label != blank %}
+      <a href="{{ section.settings.button_link }}" class="text-with-button__btn">
+        {{ section.settings.button_label }}
+      </a>
+    {% endif %}
+
+  </div>
+</section>
+
+<style>
+  .text-with-button {
+    padding: 40px 20px;
+    background-color: #f7f7f7;
+  }
+
+  .text-with-button__wrapper {
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: center;
+  }
+
+  .text-with-button__text {
+    font-size: 18px;
+    line-height: 1.6;
+    margin-bottom: 20px;
+    color: #333;
+  }
+
+  .text-with-button__btn {
+    display: inline-block;
+    padding: 12px 24px;
+    background-color: #000;
+    color: #fff;
+    text-decoration: none;
+    font-size: 16px;
+    border-radius: 4px;
+    transition: background-color 0.3s ease;
+  }
+
+  .text-with-button__btn:hover {
+    background-color: #444;
+  }
+</style>
+
+{% schema %}
+  {
+    "name": "Text with Button",
+    "settings": [
+      {
+        "type": "textarea",
+        "id": "paragraph_text",
+        "label": "Paragraph Text",
+        "default": "This is a sample paragraph text. You can change this from the customizer."
+      }, {
+        "type": "text",
+        "id": "button_label",
+        "label": "Button Label",
+        "default": "Click Here"
+      }, {
+        "type": "url",
+        "id": "button_link",
+        "label": "Button Link"
+      }
+    ],
+    "presets": [
+      {
+        "name": "Text with Button"
+      }
+    ]
+  }
+{% endschema %}
